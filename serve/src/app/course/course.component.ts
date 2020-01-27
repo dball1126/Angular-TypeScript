@@ -7,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class CourseComponent implements OnInit {
+  isFavorite: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
+  onClick() {
+    
+    this.isFavorite = !this.isFavorite;
+
+  }
 }
