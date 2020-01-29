@@ -4,6 +4,10 @@
 <span class="glyphicon glyphicon-star"
       [class.glyphicon-star]="isSelected"
       [class.glyphicon-star-empty]="!isSelected"
+      [ngClass]="{
+          'glyphicon-star': isSelected,
+          'glyphicon-star-empty': !isSelected
+      }"
       (click)="onClick()"
-      style="height: 50px"
+      
 ></span>

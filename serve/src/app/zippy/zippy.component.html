@@ -1,0 +1,14 @@
+<link href = "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel = "stylesheet">
+
+
+<div class="zippy">
+    <div class="zippy-heading"
+         (click)="onClick()"
+         [class.expanded]="isExpanded"
+    >
+        {{ title }}
+    </div>
+    <div *ngIf="isExpanded" class="zippy-body" >
+        <ng-content></ng-content>
+    </div>
+</div>

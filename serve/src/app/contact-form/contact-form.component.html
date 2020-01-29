@@ -1,0 +1,135 @@
+<link href = "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel = "stylesheet">
+
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div >
+        <div class="form-group">
+            <label for="formName">
+                Course Name
+            </label>   
+            <input  required
+                    ngModel 
+                    minlength="5" 
+                    name="name" 
+                    #name="ngModel" 
+                    (change)="log(name)"
+                    id="formName" 
+                    type="text" 
+                    class="form-control"/>
+            <div 
+                class="alert alert-danger" 
+                *ngIf="name.touched && !name.valid">
+                
+                <div *ngIf="name.errors.minlength">
+                    Name should be minimum {{ name.errors.requiredLength }} characters.
+                </div>
+                <p></p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label for="category">
+            Category
+        </label>
+        <select ngModel name="category" id="category" class="form-control">
+            <option value=""></option>
+            <option *ngFor="let method of contactMethods" [value]="method.id">{{ method.name }}</option>
+        </select>
+    </div>
+    
+    <div class="checkbox">
+        
+        <label>
+            <input type="checkbox" ngModel name="hasGuarantee">30-day money-back guarantee
+        </label>
+    </div>
+
+    <p>
+        {{ f.value | json }}
+    </p>
+    <button class="btn btn-primary" [disabled]="!f.valid">
+        Create
+    </button>
+</form>
+
+
+
+
+
+<!-- <form #f="ngForm" (ngSubmit)="submit(f)">
+    <div ngModelGroup="contact" #contact="ngModelGroup">
+        <div *ngIf="!contact.valid">...</div>
+        <div class="form-group">
+            <label for="formName">
+                First Name
+            </label>   
+            <input  required
+                    ngModel 
+                    minlength="3" 
+                    maxlength="10" 
+                    pattern="banana"
+                    name="firstName" 
+                    #firstName="ngModel" 
+                    (change)="log(firstName)"
+                    id="formName" 
+                    type="text" 
+                    class="form-control"/>
+            <div 
+                class="alert alert-danger" 
+                *ngIf="firstName.touched && !firstName.valid">
+                <div *ngIf="firstName.errors.required">
+                    First name is required.
+                </div>
+                <div *ngIf="firstName.errors.minlength">
+                    First Name has to be a minimum of {{ firstName.errors.requiredLength }} characters
+                </div>
+                <div *ngIf="firstName.errors.pattern">
+                    First name does not match the pattern.
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="comment">
+            Comment
+        </label>
+        <textarea ngModel 
+                  name="comment" 
+                  id="comment" 
+                  cols="30" 
+                  rows="10" 
+                  class="form-control">
+        </textarea>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ngModel name="isSubscribed">Subscribe the mailing list
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="contactMethod">
+
+        </label>
+        <select multiple ngModel name="contactMethod" id="contactMethod" class="form-control">
+            <option value=""></option>
+            <option *ngFor="let method of contactMethods" [value]="method.id">{{ method.name }}</option>
+        </select>
+    </div>
+
+    <div *ngFor="let method of contactMethods" class="radio">
+        <label>
+        <input ngModel type="radio" name="contactMethod" [value]="method.id">
+        {{ method.name }}
+    </label>
+</div>  
+   
+
+    <p>
+        {{ f.value | json }}
+    </p>
+    <button class="btn btn-primary" [disabled]="!f.valid">
+        Submit
+    </button>
+</form> -->

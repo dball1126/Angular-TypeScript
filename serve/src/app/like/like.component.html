@@ -1,0 +1,9 @@
+<link href = "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel = "stylesheet">
+
+<span 
+    class="glyphicon glyphicon-heart"
+    [class.highlighted]="isActive"
+    (click)="onClick()"
+></span>
+
+<span>{{ likesCount }}</span>
