@@ -9,11 +9,11 @@ import { FavorteChangedEventArgs } from './favorite/favorite.component';
 
 export class AppComponent {
 
-  tweet = {
-    body: '...',
-    likesCount: 10,
-    isLiked: true
-  }
+  // tweet = {
+  //   body: '...',
+  //   likesCount: 10,
+  //   isLiked: true
+  // }
 
   // post = {
   //   title: 'serve',
