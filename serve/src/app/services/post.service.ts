@@ -18,45 +18,38 @@ export class PostService {
   }
 
   getPosts(){
-   return this.http.get(this.url)
+   return this.http.get(this.url).pipe (
+     catchError(this.handleError)
+   )
   }
 
   createPost(post) {
     return this.http.post(this.url, JSON.stringify(post))
     .pipe(
-      catchError((error: Response) => {
-        if (error.status === 404)
-          return throwError(new BadInput(error.json()))
-
-        return throwError(new AppError(error.json()))
-      })
+      catchError(this.handleError)
     )  
   }
 
   updatePost(post) {
     return this.http.put(this.url + '/' + post.id, JSON.stringify(post))
-    // .pipe(
-    //   catchError(this.handleError));;
+    .pipe(
+      catchError(this.handleError));;
   }
 
   deletePost(id){
     return this.http.delete(this.url + '/' + id)
     .pipe(
-      catchError(
-        (error :Response) => { 
-          if (error.status === 400)
-            return throwError(new NotFoundError())
-
-            return throwError(new NotFoundError())
-        }));
+      catchError(this.handleError));
     }
     
-  //   private handleError(error: Response) {
-      
-  //     if (error.status === 404)
-  //       return Observable.throw(new NotFoundError())
-  //     else{
-  //       return Observable.throw(new AppError(error))
-  //     }
-  // }
+    private handleError(error: Response) {
+      if (error.status === 400)
+        return throwError(new BadInput(error.json()))
+
+      if (error.status === 404)
+        return throwError(new NotFoundError())
+      else{
+        return throwError(new AppError(error))
+      }
+  }
 }
