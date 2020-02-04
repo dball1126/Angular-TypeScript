@@ -22,6 +22,7 @@ import { ChangePasswordFormComponent } from './change-password-form/change-passw
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
 import { AppErrorHandler } from './common/app-error-handler';
+import { DataService } from './services/data.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { AppErrorHandler } from './common/app-error-handler';
     HttpModule
   ],
   providers: [
+    DataService,
     PostService,
     CoursesService,
     AuthorsService,
