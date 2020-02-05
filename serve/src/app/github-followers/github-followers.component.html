@@ -1,0 +1,17 @@
+<h1 class="followers-heading">My Followers</h1>
+<ul class="list-group">
+    <div *ngFor="let follower of followers" 
+        class="list-group-item">
+        
+        <img src="{{ follower.avatar_url }}" alt="">
+        <div class="follower-li">
+            <li style="font-size: 20px; font-weight: bold">
+                {{ follower.login }}
+            </li>
+            
+            <li style="color: blue">
+                {{ follower.url }}
+            </li>
+        </div>
+    </div>
+</ul>

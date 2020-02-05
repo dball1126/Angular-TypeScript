@@ -23,6 +23,7 @@ import { PostsComponent } from './posts/posts.component';
 import { PostService } from './services/post.service';
 import { AppErrorHandler } from './common/app-error-handler';
 import { DataService } from './services/data.service';
+import { GithubFollowersComponent } from './github-followers/github-followers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { DataService } from './services/data.service';
     SignupFormComponent,
     NewCourseFormComponent,
     ChangePasswordFormComponent,
-    PostsComponent
+    PostsComponent,
+    GithubFollowersComponent
   ],
   imports: [
     BrowserModule,

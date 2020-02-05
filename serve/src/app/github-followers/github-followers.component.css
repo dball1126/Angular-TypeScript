@@ -1,0 +1,7 @@
+.follower-li {
+    padding-left: 10px;
+}
+
+.list-group-item {
+    display: flex;
+}
